@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid 图表转换器</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mermaid 图表转换器</h1>
+            <p class="subtitle">上传 Markdown 文件，自动提取并转换 Mermaid 图表为高清 PNG</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📄</div>
+                    <p>拖拽 Markdown 文件到此处</p>
+                    <p class="upload-hint">或点击选择文件</p>
+                    <input type="file" id="fileInput" accept=".md,.markdown,.txt" hidden>
+                </div>
+            </section>
+
+            <section class="preview-section" id="previewSection" style="display: none;">
+                <div class="section-header">
+                    <h2>检测到的 Mermaid 图表</h2>
+                    <div class="actions">
+                        <button class="btn btn-primary" id="downloadAllBtn">
+                            下载全部 PNG
+                        </button>
+                    </div>
+                </div>
+                <div class="charts-container" id="chartsContainer"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>支持流程图、时序图、甘特图、类图等所有 Mermaid 图表类型</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
